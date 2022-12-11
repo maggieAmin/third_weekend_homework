@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+<body>
+    <h1>Book Library</h1>
+    <ul>
+        {% for index, book in books %}
+        <li><a href="/book/{{ index }}">
+        {{ book.title }} - {{ book.author }} - {{ book.genre }}
+        </a>
+        <br>
+        <form action="/book_list/delete/{{ index }}" method="get">
+            <input type="submit" value="Delete Book">
+        </form>
+    </li>
+    {% endfor %}
+    </ul>
+    <a href="/new_book">Add new book</a>
+</body>
+</html>
